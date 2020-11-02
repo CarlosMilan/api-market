@@ -11,11 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    /**
-     * Este método se utiliza para indicar que es lo que queremos exponer en nuestra documentación, en este caso
-     * queremos documentar lo que está dentro de controller
-     * @return
-     */
     @Bean
     public Docket api() {
         return new Docket( DocumentationType.SWAGGER_2 )

@@ -28,15 +28,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable() //deshabilitamos las peticiones cruzadas
-            .authorizeRequests() //Autorizamos el servicio de autenticación
+        http.csrf().disable()
+            .authorizeRequests()
                 .antMatchers("/**/authenticate").permitAll()
-                .anyRequest().authenticated() // Las demás peticiones necesitan autenticación
+                .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy( SessionCreationPolicy.STATELESS ); //Vamos a decirle que la sesión sea sin estado
-
-        // Indicamos que el token debe pasar por el filtro creado. Este es un filtro de usuario y contraseña
+                .sessionCreationPolicy( SessionCreationPolicy.STATELESS );
         http.addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter.class);
     }
 

@@ -22,7 +22,6 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public List<Product> getAll() {
-        // De la bd obtengo productos y debo devolver products a la app
         List<Producto> productos = (List<Producto>) this.productoCrudRepository.findAll();
         return this.mapper.toProducts( productos );
     }
@@ -50,20 +49,6 @@ public class ProductoRepository implements ProductRepository {
         Producto producto = mapper.toProducto( product );
         return this.mapper.toProduct( this.productoCrudRepository.save( producto ));
     }
-
-    /*
-    public Optional<Producto> getProducto( int idProducto ) {
-        return this.productoCrudRepository.findById( idProducto );
-    }
-    */
-
-
-    /*
-    public Producto save( Producto producto ) {
-        return this.productoCrudRepository.save( producto );
-    }
-    */
-
 
     @Override
     public void delete( int productId ) {

@@ -14,7 +14,7 @@ public class CompraProducto {
      private Boolean estado;
 
      @ManyToOne
-     @MapsId("idCompra") // Cuando se cuarde la compra de los productos, mediante esta anotacion se sabrá cual es la pk
+     @MapsId("idCompra")
      @JoinColumn(name = "id_compra", insertable = false, updatable = false)
      private Compra compra;
 

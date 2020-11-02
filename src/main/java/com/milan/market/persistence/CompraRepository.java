@@ -31,15 +31,6 @@ public class CompraRepository implements PurchaseRepository {
                 .map( compras -> mapper.toPurchases( compras ));
     }
 
-    /**
-     * Primero debemos mapear purchase a compra, en ese mapeo, los items de purchase pasan a ser productos de Compra
-     * de esta manera, ya sabemos en nuestro Entity compra cuales son los productos de la misma. Posteriomente
-     * debemos recorrer esos productos (compraProducto) para indicarles que pertenecen a la compra correspondiente
-     * para lo cual debemos recorrer con el forEach y asignarselas. Para este proposito se agregan las notaciones
-     * necesarias para que este procedimiento sea en cascada
-     * @param purchase
-     * @return
-     */
     @Override
     public Purchase save(Purchase purchase) {
         Compra compra = mapper.toCompra( purchase );

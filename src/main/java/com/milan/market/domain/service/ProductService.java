@@ -36,16 +36,6 @@ public class ProductService {
             productRepository.delete( productId );
             return true;
         }).orElse( false );
-
-        // El método opcional es propio de los Optional. Esta es otra forma
-        /*
-        if ( getProduct(productId).isPresent() ) {
-            productRepository.delete( productId );
-            return true;
-        } else {
-            return false;
-        }
-         */
     }
 
 }
